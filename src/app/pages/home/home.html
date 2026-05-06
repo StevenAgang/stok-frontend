@@ -1,0 +1,58 @@
+<app-navbar></app-navbar>
+<main class="mx-5 mt-5 mb-50">
+  <router-outlet></router-outlet>
+</main>
+<app-taskbar></app-taskbar>
+
+<!-- <section class="w-full flex justify-center flex-col items-center">
+  <section class="m-5 w-[50%]">
+    <form action="" class="flex gap-5">
+      <input type="text" class="p-3 border w-full rounded-lg" placeholder="Paste Url" />
+      <button type="submit">Send</button>
+    </form>
+  </section>
+  <section class="mt-10 w-[50%] flex flex-row items-center justify-center gap-5">
+    <section class="w-[80%] flex flex-col gap-5 h-250 overflow-y-auto">
+      <section class="py-3 px-5 flex gap-5 bg-amber-50 rounded-lg w-full relative">
+        <p class="absolute right-2 top-2 bg-red-200 py-1 px-2 rounded-lg text-red-900">
+          Not yet posted
+        </p>
+        <p>Stock #: AS2142S3</p>
+        <p>Price: $22,457</p>
+        @if (eligibleForPosting()) {
+          <form>
+            <button type="submit" class="bg-green-200 px-5 rounded-lg cursor-pointer">Post</button>
+          </form>
+        }
+      </section>
+    </section>
+    <section class="w-[80%] flex flex-col gap-5 h-250 overflow-y-auto">
+      <section class="py-3 px-5 flex gap-5 rounded-lg bg-blue-50 w-full relative">
+        <p class="absolute right-2 top-2 bg-green-200 py-1 px-2 rounded-lg text-green-900">
+          Posted
+        </p>
+        <p>Stock #: 28476S</p>
+        <p>Price: $10,465</p>
+      </section>
+    </section>
+  </section>
+  <section class="flex flex-col flex-wrap gap-5 w-[50%] h-125 overflow-auto">
+    <form>
+      @for (res of result(); track res.results; let i = $index) {
+        <section>
+          <label for="{{ i }}" class="w-full">
+            <input type="checkbox" id="{{ i }}" value="{{ res.results }}" />
+            {{ res.results }}
+          </label>
+        </section>
+      }
+    </form>
+  </section>
+  <button
+    type="button"
+    (click)="sendScrape()"
+    class="py-2 px-3 bg-green-50 text-green-900 rounded-lg cursor-pointer"
+  >
+    Send Job
+  </button>
+</section> -->

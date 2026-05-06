@@ -1,0 +1,123 @@
+<section
+  class="absolute top-0 left-0 right-0 bottom-0 flex flex-col justify-center items-center w-full"
+>
+  <section
+    class="relative bg-white/90 rounded-2xl p-5 flex flex-col justify-center items-center w-full max-w-125"
+  >
+    <h1 class="font-bold text-4xl">Sign up</h1>
+    <h3 class="sub-headline-color">All field marked with (*) are required</h3>
+    <form [formGroup]="form" (ngSubmit)="submitForm()" class="form-global mt-5">
+      <app-error [errorMessage]="error"></app-error>
+      <app-form
+        [formGroups]="form"
+        [label]="'First Name*'"
+        [inputId]="'firstName'"
+        [inputType]="'text'"
+        [InputFormControlName]="'firstName'"
+        [inputState]="firstNameState()"
+        [placeHolder]="'Juan'"
+        (resetMainError)="resetError()"
+      ></app-form>
+      <app-form
+        [formGroups]="form"
+        [label]="'Middle Name'"
+        [inputId]="'middleName'"
+        [inputType]="'text'"
+        [InputFormControlName]="'middleName'"
+        [placeHolder]="'Mariposa'"
+        (resetMainError)="resetError()"
+      ></app-form>
+      <app-form
+        [formGroups]="form"
+        [label]="'Last Name*'"
+        [inputId]="'lastName'"
+        [inputType]="'text'"
+        [InputFormControlName]="'lastName'"
+        [inputState]="lastNameState()"
+        [placeHolder]="'Delacruz'"
+        (resetMainError)="resetError()"
+      ></app-form>
+
+      <app-form
+        [formGroups]="form"
+        [label]="'Email*'"
+        [inputId]="'email'"
+        [inputType]="'text'"
+        [InputFormControlName]="'email'"
+        [inputState]="emailState()"
+        [placeHolder]="'you@Example.com'"
+        (resetMainError)="resetError()"
+      ></app-form>
+      <app-form
+        [formGroups]="form"
+        [label]="'Password*'"
+        [inputId]="'password'"
+        [inputType]="'password'"
+        [enablePasswordValidation]="true"
+        [InputFormControlName]="'password'"
+        [inputState]="passwordState()"
+        [placeHolder]="'********'"
+        (resetMainError)="resetError()"
+      ></app-form>
+      <button
+        type="submit"
+        [disabled]="!formState()"
+        [ngClass]="{
+          'btn-global': true,
+          'bg-black/10': !formState(),
+          'hover:scale-[1.0]': !formState(),
+          'cursor-default': !formState(),
+        }"
+      >
+        @if (isLoading()) {
+          <img
+            src="https://res.cloudinary.com/dwwjrds1j/image/upload/v1777291055/svgviewer-output_zxzswy.svg"
+            alt="Loader"
+          />
+        } @else {
+          Sign up
+        }
+      </button>
+      <p
+        class="text-center mt-4 lines flex justify-center flex-row gap-2 items-center text-black/50"
+      >
+        or
+      </p>
+      <a
+        class="btnLanding flex justify-center gap-2 items-center mt-5 bg-[#F8FAFC]/50 border border-[#c0cbcd]"
+        href="https://localhost:7012/user/google-signin?userAgent={{ userAgent }}&platform={{
+          platform
+        }}"
+      >
+        <img
+          src="https://res.cloudinary.com/dwwjrds1j/image/upload/v1773599984/google-icon-logo-svgrepo-com_rrxzy8.svg"
+          alt="Google Icon"
+          class="w-5 inline"
+        />
+        Sign up with Google
+      </a>
+    </form>
+    <section class="mb-20">
+      <p>Already have an account? <a routerLink="/login" class="link-color-global">Sign in</a></p>
+    </section>
+    <section class="absolute bottom-0 rounded-b-2xl bg-[#F8FAFC] w-full">
+      <a routerLink="/" class="flex flex-row gap-2 items-center text-sm justify-center my-4">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1"
+          stroke="currentColor"
+          class="size-5"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18"
+          />
+        </svg>
+        Go back
+      </a>
+    </section>
+  </section>
+</section>

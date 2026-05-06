@@ -1,0 +1,85 @@
+<section [formGroup]="formGroups" class="w-full flex flex-col">
+  @if (label) {
+    <section class="flex justify-between">
+      <label for="{{ inputId }}" class="{{ labelCss }}">{{ label }}</label>
+      @if (inputId === 'password' && forgotPasswordLink) {
+        <a routerLink="/recovery" class="text-sm hover:text-blue-500">Forgot password?</a>
+      }
+    </section>
+  }
+  @if (inputType) {
+    <input
+      type="{{ inputType }}"
+      id="{{ inputId }}"
+      placeholder="{{ placeHolder }}"
+      formControlName="{{ inputFormControlName }}"
+      class="{{ inputCss }}"
+      [autocomplete]="verification ? 'off' : 'true'"
+      (keypress)="NumericInput($event)"
+      (input)="resets()"
+      [ngClass]="{
+        'bg-red-100 border border-red-300 ': state()?.touched && state()?.invalid,
+      }"
+      [hidden]="hidden"
+    />
+  }
+  @if (inputState && !verification) {
+    @if (state()?.touched && state()?.invalid) {
+      @if (inputId === 'password') {
+        @if (state()?.errors?.['required']) {
+          <p class="{{ errorCss }}">Password is required</p>
+        } @else if (!state()?.errors?.['required'] && passwordValidation) {
+          <ul>
+            <li class="mb-2 font-semibold tracking-wide leading-tight px-2">
+              Password must contain:
+            </li>
+            <li
+              class="{{ errorCss }}"
+              [ngClass]="{
+                'text-green-500!': !state()?.errors?.['lessThanEight'],
+              }"
+            >
+              At least 8 characters
+            </li>
+            <li
+              class="{{ errorCss }}"
+              [ngClass]="{
+                'text-green-500!': !state()?.errors?.['missingUppercase'],
+              }"
+            >
+              One uppercase letter (A-Z)
+            </li>
+            <li
+              class="{{ errorCss }}"
+              [ngClass]="{
+                'text-green-500!': !state()?.errors?.['missingLowercase'],
+              }"
+            >
+              One lowercase letter (a-z)
+            </li>
+            <li
+              class="{{ errorCss }}"
+              [ngClass]="{
+                'text-green-500!': !state()?.errors?.['missingDigit'],
+              }"
+            >
+              One number (0-9)
+            </li>
+            <li
+              class="{{ errorCss }}"
+              [ngClass]="{
+                'text-green-500!': !state()?.errors?.['missingSpecialCharacter'],
+              }"
+            >
+              One special character (!@#$%^&*)
+            </li>
+          </ul>
+        }
+      } @else {
+        @for (err of errorKeys(state()!.errors); track $index) {
+          <p class="{{ errorCss }}">{{ getErrorMessage(err) }}</p>
+        }
+      }
+    }
+  }
+</section>

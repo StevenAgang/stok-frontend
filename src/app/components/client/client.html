@@ -1,0 +1,282 @@
+<section class="">
+  <section
+    class="bg-linear-to-r from-[rgba(15,42,74,1)] to-[rgba(15,42,74,0.7)] scale-z-1 text-white rounded-lg p-5 my-10 flex flex-col md:flex-row md:justify-between"
+  >
+    <section>
+      <h1 class="text-2xl tracking-wide font-bold mb-2">Client Management</h1>
+      <h2 class="text-md text-white/80">Centralized tracking for active automotive dealerships</h2>
+    </section>
+    <button
+      type="button"
+      class="p-3 bg-[#004AC6] rounded-md mt-5 font-semibold tracking-wide cursor-pointer"
+    >
+      Add New Client
+    </button>
+  </section>
+  <section class="flex gap-2 flex-col">
+    <section
+      class="p-5 bg-white shadow-sm rounded-md flex items-center justify-between font-semibold"
+    >
+      <p class="text-gray-500">Total Clients</p>
+      <p class="text-[#004AC6]">128</p>
+    </section>
+    <section
+      class="p-5 bg-white shadow-sm rounded-md flex items-center justify-between font-semibold"
+    >
+      <p class="text-gray-500">Pending Audit</p>
+      <p class="text-[#FF474D]">128</p>
+    </section>
+    <section
+      class="p-5 bg-white shadow-sm rounded-md flex items-center justify-between font-semibold"
+    >
+      <p class="text-gray-500">Active FB Ads</p>
+      <p class="">128</p>
+    </section>
+    <section
+      class="p-5 bg-white shadow-sm rounded-md flex items-center justify-between font-semibold"
+    >
+      <p class="text-gray-500">Total Inventory</p>
+      <p class="">128</p>
+    </section>
+  </section>
+  <section class="mt-10">
+    <section class="flex flex-col">
+      <p class="text-xl font-semibold">Client List</p>
+      <p class="text-sm text-gray-500">Sorted by Onboarding</p>
+    </section>
+    <section
+      [ngClass]="expand() ? 'pb-45' : 'pb-15'"
+      class="mt-8 bg-white px-5 pt-5 relative rounded-md shadow-sm transition-all duration-200 ease-in"
+    >
+      <section class="flex items-center justify-between">
+        <p class="capitalize text-[#004AC6] font-semibold">blue peak toyota - ernesto ocampo</p>
+        <section class="p-2 bg-green-100 rounded-md">
+          <p class="text-sm tracking-wide text-green-900">Active</p>
+        </section>
+      </section>
+      <section class="flex items-center gap-1 my-1">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#999999"
+          stroke-width="1"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+          <path
+            d="M11.87 21.48a1.992 1.992 0 0 1 -1.283 -.58l-4.244 -4.243a8 8 0 1 1 13.355 -3.474"
+          />
+          <path d="M15 19l2 2l4 -4" />
+        </svg>
+        <p class="text-[12px] text-gray-500 tracking-wide">San Juan, TX USA</p>
+      </section>
+      <section class="my-4">
+        <p class="text-sm tracking-wide">
+          Tier 1 dealership specializing in pre-owned inventory management and social media
+          conversion.
+        </p>
+      </section>
+      <section class="border border-gray-100 my-2"></section>
+      <section class="flex justify-between items-center">
+        <section>
+          <p class="text-sm text-gray-500">Onboarding Date</p>
+          <p class="font-semibold">Jan 12 2024</p>
+        </section>
+        <a href="" class="flex items-center text-sm text-blue-600 font-semibold"
+          >Visit Site
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#155dfc"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6" />
+            <path d="M11 13l9 -9" />
+            <path d="M15 4h5v5" />
+          </svg>
+        </a>
+      </section>
+      <section
+        [ngClass]="expand() ? 'h-33' : 'h-0'"
+        class="absolute bg-gray-50 border-gray-300 flex flex-row bottom-10 left-0 right-0 border-t font-semibold transition-all duration-200 ease-in"
+      >
+        <section class="flex flex-col gap-2 p-5 w-full overflow-hidden">
+          <section>
+            <p class="text-gray-500 text-sm">Audit Day</p>
+            <p>Tuesday</p>
+          </section>
+          <section>
+            <p class="text-gray-500 text-sm">Ad Status</p>
+            <p class="text-sm">Live (18 ads)</p>
+          </section>
+        </section>
+        <section class="flex flex-col gap-2 p-5 w-full overflow-hidden">
+          <section>
+            <p class="text-gray-500 text-sm">Inventory Units</p>
+            <p class="text-sm">Tuesday</p>
+          </section>
+          <section>
+            <p class="text-gray-500 text-sm">Next Audit</p>
+            <p class="text-sm">Oct 24, 2024</p>
+          </section>
+        </section>
+      </section>
+      <section
+        class="absolute bottom-0 left-0 right-0 border-t border-gray-300 bg-gray-50 rounded-b-md py-2"
+      >
+        <button class="w-full text-gray-500 cursor-pointer" (click)="expandDetails()">
+          @if (expand()) {
+            Close Details
+          } @else {
+            View Details
+          }
+        </button>
+      </section>
+    </section>
+    <section class="mt-8 bg-white p-5 relative rounded-md shadow-sm">
+      <section class="flex items-center justify-between">
+        <p class="capitalize text-[#004AC6] font-semibold">blue peak toyota - ernesto ocampo</p>
+        <section class="p-2 bg-orange-100 rounded-md">
+          <p class="text-sm tracking-wide text-orange-900">Pending Audit</p>
+        </section>
+      </section>
+      <section class="flex items-center gap-1 my-1">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#999999"
+          stroke-width="1"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+          <path
+            d="M11.87 21.48a1.992 1.992 0 0 1 -1.283 -.58l-4.244 -4.243a8 8 0 1 1 13.355 -3.474"
+          />
+          <path d="M15 19l2 2l4 -4" />
+        </svg>
+        <p class="text-[12px] text-gray-500 tracking-wide">San Juan, TX USA</p>
+      </section>
+      <section class="my-4">
+        <p class="text-sm tracking-wide">
+          Tier 1 dealership specializing in pre-owned inventory management and social media
+          conversion.
+        </p>
+      </section>
+      <section class="border border-gray-100 my-2"></section>
+      <section class="flex justify-between items-center">
+        <section>
+          <p class="text-sm text-gray-500">Onboarding Date</p>
+          <p class="font-semibold">Jan 12 2024</p>
+        </section>
+        <a href="" class="flex items-center text-sm text-blue-600 font-semibold"
+          >Visit Site
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#155dfc"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6" />
+            <path d="M11 13l9 -9" />
+            <path d="M15 4h5v5" />
+          </svg>
+        </a>
+      </section>
+    </section>
+    <section class="mt-8 bg-white p-5 relative rounded-md shadow-sm">
+      <section class="flex items-center justify-between">
+        <p class="capitalize text-[#999999] font-semibold">blue peak toyota - ernesto ocampo</p>
+        <section class="p-2 bg-gray-200 rounded-md">
+          <p class="text-sm tracking-wide text-gray-500">Inactive</p>
+        </section>
+      </section>
+      <section class="flex items-center gap-1 my-1">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#999999"
+          stroke-width="1"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+          <path
+            d="M11.87 21.48a1.992 1.992 0 0 1 -1.283 -.58l-4.244 -4.243a8 8 0 1 1 13.355 -3.474"
+          />
+          <path d="M15 19l2 2l4 -4" />
+        </svg>
+        <p class="text-[12px] text-gray-500 tracking-wide">San Juan, TX USA</p>
+      </section>
+      <section class="my-4">
+        <p class="text-sm tracking-wide text-[#999999]">
+          Tier 1 dealership specializing in pre-owned inventory management and social media
+          conversion.
+        </p>
+      </section>
+      <section class="border border-gray-100 my-2"></section>
+      <section class="flex justify-between items-center">
+        <section>
+          <p class="text-sm text-gray-500">Onboarding Date</p>
+          <p class="font-semibold text-[#999999]">Jan 12 2024</p>
+        </section>
+        <a href="" class="flex items-center text-sm text-gray-500 font-semibold"
+          >Visit Site
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#999999"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6" />
+            <path d="M11 13l9 -9" />
+            <path d="M15 4h5v5" />
+          </svg>
+        </a>
+      </section>
+    </section>
+  </section>
+  <!-- <button type="button" class="bg-[#004AC6] p-3 rounded-md absolute bottom-30 right-5 md:hidden">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="40"
+      height="40"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="#ffff"
+      stroke-width="1"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+      <path d="M16 19h6" />
+      <path d="M19 16v6" />
+      <path d="M6 21v-2a4 4 0 0 1 4 -4h4" />
+    </svg>
+  </button> -->
+</section>
